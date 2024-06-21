@@ -57,8 +57,8 @@ void Setup()
 	srand(time(NULL));
 
 	for (int i = 0; i < MAPSIZE; ++i) {
-		board[0][i] = board[MAPSIZE - 1][i] = WALL; //¾ç ¿· »õ·Î º®
-		board[i][0] = board[i][MAPSIZE - 1] = WALL; //À§ ¾Æ·¡ °¡·Î º®
+		board[0][i] = board[MAPSIZE - 1][i] = WALL; //ì–‘ ì˜† ìƒˆë¡œ ë²½
+		board[i][0] = board[i][MAPSIZE - 1] = WALL; //ìœ„ ì•„ëž˜ ê°€ë¡œ ë²½
 	}
 
 	snake[HEAD] =	  (Point){ 15, 15 };
@@ -76,14 +76,14 @@ void Print()
 	for (int col = 0; col < MAPSIZE; ++col) {
 		for (int row = 0; row < MAPSIZE; ++row) {
 			switch (board[col][row]) {
-				case WALL:	ScreenPrint(col, row * 2, "¡á");  break;
-				case FOOD:	ScreenPrint(col, row * 2, "¡Ý"); break;
+				case WALL:	ScreenPrint(col, row * 2, "â– ");  break;
+				case FOOD:	ScreenPrint(col, row * 2, "â—Ž"); break;
 				case EMPTY:	ScreenPrint(col, row * 2, "  "); break;
 			}
 		}
 	}
 	for (int i = 0; i < tailSize; ++i) {
-		ScreenPrint(snake[i].y, snake[i].x * 2, "¡à");
+		ScreenPrint(snake[i].y, snake[i].x * 2, "â–¡");
 	}
 	SetConsoleActiveScreenBuffer(hScreen[screenIndex]);
 	screenIndex = !screenIndex;
